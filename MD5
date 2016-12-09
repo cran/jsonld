@@ -1,0 +1,10 @@
+0fbcf676ddd0896ff9b2961b02b87e1d *DESCRIPTION
+ff230d4682c7363454a959ad8c837595 *LICENSE
+2d9b18c088f8cca16c40f8388109812e *NAMESPACE
+a0929c4ba3dab872cf6e239f677a3165 *R/download.R
+07cce1ab7e8a9764a4118f47e27f2200 *R/onload.R
+23131e6d8f4510a73b3511b8ded0c6b7 *R/wrappers.R
+68752a0fceee09af6c0d028d3789e652 *inst/js/es6-promise.js
+0bae3401df72a046d486097c7c78499a *inst/js/jsonld.js
+7e028c672a9e241dde7248a338b9ae5f *inst/js/wrappers.js
+7d6de85636f8fba98c0cd5045f383dc3 *man/jsonld.Rd
