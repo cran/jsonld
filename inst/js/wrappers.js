@@ -1,9 +1,15 @@
+//Fix missing polyfill in jsonld 1.0.0
+String.prototype.endsWith = function(suffix) {
+    return this.indexOf(suffix, this.length - suffix.length) !== -1;
+};
+
 function setTimeout(fun){
   fun();
 }
 
 /* V8 does not have network support, so we call back to R */
 jsonld.documentLoaders.curl = function(options){
+  LINK_HEADER_REL = 'http://www.w3.org/ns/json-ld#context';
   function loader(url, callback){
     var res = console.r.call('jsonld:::download', {url : url});
     var doc = {contextUrl: null, documentUrl: res.final_url, document: JSON.parse(res.response_text)};
@@ -11,20 +17,21 @@ jsonld.documentLoaders.curl = function(options){
     var linkHeader = res.link;
 
     // copied from 'jsonld.documentLoaders.jquery'
-    if(linkHeader && contentType !== 'application/ld+json') {
+    if(linkHeader && linkHeader.length && contentType !== 'application/ld+json') {
       // only 1 related link header permitted
       linkHeader = jsonld.parseLinkHeader(linkHeader)[LINK_HEADER_REL];
-      if(_isArray(linkHeader)) {
-        return callback(new JsonLdError(
+      if(Array.isArray(linkHeader)) {
+        throw new JsonLdError(
           'URL could not be dereferenced, it has more than one ' +
           'associated HTTP Link Header.',
           'jsonld.InvalidUrl',
-          {code: 'multiple context link headers', url: url}), doc);
+          {code: 'multiple context link headers', url: url});
       }
       if(linkHeader) {
         doc.contextUrl = linkHeader.target;
       }
     }
+
     callback(null, doc);
   }
   return loader;
