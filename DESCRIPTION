@@ -1,7 +1,7 @@
 Package: jsonld
 Type: Package
 Title: JSON for Linking Data
-Version: 2.0
+Version: 2.1
 Authors@R: c(
     person("Jeroen", "Ooms", role = c("aut", "cre"), email = "jeroen@berkeley.edu",
       comment = c(ORCID = "0000-0002-4035-0289")),
@@ -19,9 +19,9 @@ RoxygenNote: 5.0.1.9000
 Suggests: spelling
 Language: en-US
 NeedsCompilation: no
-Packaged: 2018-05-03 14:32:02 UTC; jeroen
+Packaged: 2019-02-05 12:39:08 UTC; jeroen
 Author: Jeroen Ooms [aut, cre] (<https://orcid.org/0000-0002-4035-0289>),
   rOpenSci [fnd] (https://ropensci.org)
 Maintainer: Jeroen Ooms <jeroen@berkeley.edu>
 Repository: CRAN
-Date/Publication: 2018-05-03 17:34:03 UTC
+Date/Publication: 2019-02-05 13:43:19 UTC
